@@ -1,0 +1,28 @@
+#editor.ui-layout-west
+  %label Your XML
+  %textarea#code{:name=>"code"}=@code
+
+.ui-layout-center          
+  %label Your XSLT
+  %textarea#xslt{:name=>"xslt"}=@xslt
+
+
+#output.ui-layout-east
+  -if @errors
+    %h2 There are errors in your stylesheet or XML file.
+    -@errors.each do |e|
+      %p= e
+  -else
+    =@output
+#help
+  %h1 What is this all about?
+  %p 
+    Enter your XML file and a valid XSLT file and see the transformation
+    results as you work.
+  %p
+    You use XSLT and XPath to find elements in the document so you 
+    can transform it into something useful. Right now this is just
+    a playground site but I hope to be able to provide some 
+    useful default templates in the future.
+
+  %p This uses Ruby and the Nokogiri library to do the XSLT transformation.

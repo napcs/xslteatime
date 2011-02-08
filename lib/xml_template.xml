@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<root>
+  <people>
+    <person>
+      <first_name>Homer</first_name>
+      <last_name>Simpson</last_name>
+      <job>Safety Inspector</job>
+    </person>        
+    <person>
+      <first_name>Marge</first_name>
+      <last_name>Simpson</last_name>
+      <job>Homemaker</job>
+    </person>        
+    <person>
+      <first_name>Clancy</first_name>
+      <last_name>Wiggum</last_name>
+      <job>Chief Of Police</job>
+    </person>        
+    <person>
+      <first_name>Julius</first_name>
+      <last_name>Hibbert</last_name>
+      <job>Physician</job>
+    </person>        
+  </people>
+</root>

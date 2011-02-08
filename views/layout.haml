@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %title XSLTeatime Online XSLT Lab
+    %script{:src=>JQUERY}
+    %script{:src=>JQUERY_UI}
+    %script{:src=>"/javascript/jquery.layout.min-1.2.0.js"}
+    %script{:src=>"/javascript/app.js"}
+    %script{:src=>"/javascript/codemirror/js/codemirror.js"} 
+    %link{:href=>"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css", :rel=>"stylesheet"}
+    %link{:rel=>"stylesheet", :href=>"/stylesheets/app.css", :media=>"screen"}
+  %body
+    %form{:action => "/", :method => "post"}
+      
+      .ui-layout-north
+        %h1 
+          XSLTeatime Online XSLT Lab
+        .render_button
+          %input{:type=>"submit", :value=>"Transform and Roll Out!"}
+          or
+          %a#help_link{:href=>"#help"} Help me!                  
+      =yield        
+    
+      .ui-layout-south
+        %h5
+          This experiment brought to you by 
+          %a{:href => "http://www.twitter.com/bphogan"} Brian P. Hogan
+          and the power of Ruby.

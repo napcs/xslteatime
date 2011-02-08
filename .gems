@@ -1,0 +1,2 @@
+haml --version 3.0.25
+nokogiri --version 1.4.4
