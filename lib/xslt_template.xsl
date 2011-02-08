@@ -15,6 +15,7 @@
   <!-- Find the "people" node and build a header -->
   <xsl:template match="people">
     <h2>People</h2> 
+    <p>These are the people in your neighborhood, in your neighbohood, in your neighborhood....</p>
     <ul>
       <!-- Don't stop! Try applying other templates -->
       <xsl:apply-templates/>
