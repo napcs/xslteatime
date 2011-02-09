@@ -12,6 +12,31 @@ $(function(){
     });
   });
 
+  $('#xslteatime_form').submit(function(event){
+    event.preventDefault(); 
+    transformViaAjax();
+
+  });
+  var transformViaAjax = function(){
+    $("#output").html("I got this.... hold on a sec..");
+    $.ajax({
+      type: "POST",
+      url: "/",
+      dataType: 'json',
+      data: $("#xslteatime_form").serialize(),
+      success: function(data){
+        if(data["errors"]){
+          $('#output').html("<h2>There were errors with your input</h2>" + data['errors']);
+        }else{
+          $('#output').html(data["render"]);
+        }  
+      },
+      failure: function(){
+        $('#output').html("The connection to the server failed.");
+      }
+    });
+  
+  }
 
   myLayout = $('body').layout({
 
