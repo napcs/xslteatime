@@ -17,8 +17,14 @@ $(function(){
     transformViaAjax();
 
   });
+  
   var transformViaAjax = function(){
     $("#output").html("I got this.... hold on a sec..");
+ 
+      $("#code").val($xmleditor.getCode());
+
+      $("#xslt").val($xslteditor.getCode());
+    
     $.ajax({
       type: "POST",
       url: "/",
