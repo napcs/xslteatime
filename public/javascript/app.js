@@ -56,16 +56,10 @@ $(function(){
 
 
   var $xmleditor = CodeMirror.fromTextArea("code", {
-    parserfile: ["parsexml.js"],
-    path: "/javascript/codemirror/js/",
-    tabmode: "spaces",
-    stylesheet: "/javascript/codemirror/css/xmlcolors.css"
+    tabmode: "spaces"
   });
   var $xslteditor = CodeMirror.fromTextArea("xslt", {
-    parserfile: ["parsexml.js"],
-    path: "/javascript/codemirror/js/",
-    tabmode: "spaces",
-    stylesheet: "/javascript/codemirror/css/xmlcolors.css"
+    tabmode: "spaces"
   });
 
 
