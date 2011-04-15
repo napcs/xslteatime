@@ -18,6 +18,7 @@ class Xslteatime
       result = xsl.apply_to(self.doc).to_s
     rescue RuntimeError => e
       self.errors << e.message
+      result = nil
     end
     
   end

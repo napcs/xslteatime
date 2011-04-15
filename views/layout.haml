@@ -4,17 +4,35 @@
     %title XSLTeatime Online XSLT Lab
     %script{:src=>JQUERY}
     %script{:src=>JQUERY_UI}
-    %script{:src=>"/javascript/jquery.layout.min-1.2.0.js"}
-    %script{:src=>"/javascript/app.js"}
-    %script{:src=>"/javascript/codemirror/lib/codemirror.js"} 
-    %script{:src=>"/javascript/codemirror/mode/xml/xml.js"} 
+    %link{ :rel=>"stylesheet", :href=>"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css"}
     
+    %script{:src=>"/javascript/jquery.layout.js"}
+    
+    %script{:src=>"/javascript/codemirror/lib/codemirror.js"} 
+    %script{:src=>"/javascript/codemirror/mode/xml/xml.js"}    
     %link{:rel=>"stylesheet", :href=>"/javascript/codemirror/lib/codemirror.css", :media=>"screen"}
     %link{:rel=>"stylesheet", :href=>"/javascript/codemirror/mode/xml/xml.css", :media=>"screen"}
     
-    %link{:href=>"http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/smoothness/jquery-ui.css", :rel=>"stylesheet"}
-    %link{:rel=>"stylesheet", :href=>"/stylesheets/app.css", :media=>"screen"}
+    
+    
+    %script{:src=>"/javascript/app.js"}
+    %link{:rel=>"stylesheet", :href=>"/stylesheets/app.css"}
+    
   %body
+    #help
+      %h1 What is this all about?
+      %p 
+        Enter your XML file and a valid XSLT file and see the transformation
+        results as you work.
+      %p
+        You use XSLT and XPath to find elements in the document so you 
+        can transform it into something useful. Right now this is just
+        a playground site but I hope to be able to provide some 
+        useful default templates in the future.
+
+      %p This uses Ruby and the Nokogiri library to do the XSLT transformation.
+  
+  
     %form#xslteatime_form{:action => "/", :method => "post"}
       
       .ui-layout-north
@@ -27,7 +45,7 @@
       =yield        
     
       .ui-layout-south
-        %h5
+        %p
           This experiment brought to you by 
           %a{:href => "http://www.twitter.com/bphogan"} Brian P. Hogan
           and the power of Ruby.

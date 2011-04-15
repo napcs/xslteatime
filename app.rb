@@ -3,8 +3,9 @@ require 'haml'
 require 'lib/xslteatime'
 require 'json'
 
-JQUERY = "http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"
-JQUERY_UI = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"
+# http://code.google.com/apis/libraries/devguide.html#jqueryUI
+JQUERY = "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"
+JQUERY_UI = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"
 
 set :haml, {:format => :html5 }
 

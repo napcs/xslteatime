@@ -1,6 +1,6 @@
 $(function(){
   
-  //$("#help").hide();
+  $("#help").hide();
   
   $("a#help_link").click(function(e){
     e.preventDefault();
@@ -18,12 +18,17 @@ $(function(){
 
   });
   
+  var $xmleditor = CodeMirror.fromTextArea(document.getElementById("code"), {
+  });
+
+  var $xslteditor = CodeMirror.fromTextArea(document.getElementById("xslt"), {
+  });
+  
   var transformViaAjax = function(){
     $("#output").html("I got this.... hold on a sec..");
- 
-      $("#code").val($xmleditor.getCode());
-
-      $("#xslt").val($xslteditor.getCode());
+     
+    $xmleditor.save();  
+    $xslteditor.save();
     
     $.ajax({
       type: "POST",
@@ -33,8 +38,11 @@ $(function(){
       success: function(data){
         if(data["errors"]){
           $('#output').html("<h2>There were errors with your input</h2>" + data['errors']);
+          $('#output_source').val("There were errors with your input - " + data['errors']);
+          
         }else{
           $('#output').html(data["render"]);
+          $('#output_source').val(data["render"]);
         }  
       },
       failure: function(){
@@ -48,19 +56,21 @@ $(function(){
 
     applyDefaultStyles: true,
     west__size: "400",
-    north__size: "100",
+    north__size: "80",
     south__size: "50",
     east__size: "400",
-    center__size: "400",
+    
+    west__onopen: function () { $xmleditor.resize(); },
+    west__onresize: function () { $xmleditor.resize(); },
+    
+    east__onresize:		function () { $accordion.resize(); }
+		
   });
 
+  $accordion = $("#accordion").accordion({
+    fillSpace:	true
+  });
 
-  var $xmleditor = CodeMirror.fromTextArea("code", {
-    tabmode: "spaces"
-  });
-  var $xslteditor = CodeMirror.fromTextArea("xslt", {
-    tabmode: "spaces"
-  });
 
 
 });
