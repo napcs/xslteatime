@@ -1,7 +1,8 @@
 require 'sinatra'
-require 'haml' 
-require 'lib/xslteatime'
+require 'haml'
 require 'json'
+
+require './lib/xslteatime'
 
 # http://code.google.com/apis/libraries/devguide.html#jqueryUI
 JQUERY = "http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"
@@ -16,14 +17,14 @@ end
 
 get '/' do
   if @code.nil?
-   @code = File.read("lib/xml_template.xml") 
+   @code = File.read("lib/xml_template.xml")
   end
   if @xslt.nil?
-   @xslt = File.read("lib/xslt_template.xsl") 
+   @xslt = File.read("lib/xslt_template.xsl")
   end
   @output ||= ""
   haml :index
-  
+
 end
 
 post "/" do
@@ -41,4 +42,4 @@ post "/" do
   end
 end
 
-                                    
+
